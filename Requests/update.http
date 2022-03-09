@@ -1,3 +1,11 @@
-### UPDATE WILDERS 
-POST http://localhost:3000/api/wilder/update HTTP/1.1
+PUT http://localhost:3000/api/wilder/update/622870bbecfb5360721d1982 HTTP/1.1
 content-type: application/json
+
+{
+    "name":"update5",
+    "city": "Londres",
+    "skills":[
+        {"title":"express", "votes":5},
+        {"title":"mongo", "votes":12}
+    ]
+}

@@ -46,9 +46,9 @@ app.get("/api/wilder/read", WilderController.read);
 
 app.post("/api/wilder/create", WilderController.create);
 
-app.post("/api/wilder/update/:id", WilderController.updateOne);
+app.put("/api/wilder/update/:id", WilderController.updateOne);
 
-app.delete("/api/wilder/delete/:id", WilderController.deleteById)
+app.delete("/api/wilder/delete/:id", WilderController.deleteOne)
 
 // start server
 app.listen(3000, () => console.log("Server started on 3000"));

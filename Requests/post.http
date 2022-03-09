@@ -1,10 +1,8 @@
-### CREATE WILDERS
 POST http://localhost:3000/api/wilder/create HTTP/1.1
-
 content-type: application/json
 
-​{
-    "name":"Http Wilder",
+{
+    "name":"test5",
     "city": "Londres",
     "skills":[
         {"title":"express", "votes":5},

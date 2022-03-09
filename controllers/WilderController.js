@@ -16,9 +16,7 @@ module.exports = {
   },
   read: (req, res) => {
     WilderModel.init().then(() => {
-      const wilder = new WilderModel(req.body);
-      wilder
-        .save()
+      WilderModel.find()
         .then((result) => {
           res.json({ success: true, result: result });
         })
@@ -29,10 +27,10 @@ module.exports = {
   },
   updateOne: (req, res) => {
     WilderModel.init().then(() => {
-      const idWilder = req.param.id
+      const idWilder = req.params.id
       //on utilise la méthode updateOne pour mettre à jour le document
       //on lui passe en param l'id
-      WilderModel.updateOne({_id: idWilder})
+      WilderModel.updateOne({_id: idWilder}, {...req.body})
       .then((result) => {
         res.status(200).json({ success: true, result: result });
       })
@@ -41,12 +39,12 @@ module.exports = {
       });
     });
   },
-  deleteById: (req, res) => {
+  deleteOne: (req, res) => {
     WilderModel.init().then(() => {
-      const idWilder = req.param.id
-      //on utilise la méthode deleteById pour supprimer le document
+      const idWilder = req.params.id
+      //on utilise la méthode deleteOne pour supprimer le document
       //on lui passe en param l'id
-      WilderModel.deleteById({_id: idWilder})
+      WilderModel.deleteOne({_id: idWilder})
       .then((result) => {
         res.status(200).json({ success: true, result: result });
       })
